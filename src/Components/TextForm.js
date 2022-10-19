@@ -28,6 +28,13 @@ export default function TextForm(props) {
           <button className="btn btn-primary mt-3 ms-5" onClick={handel_UpClick}>Convert To LowerCase</button>
         </div>
       </div>
+      <div className="container">
+        <h2>Your Text Summary</h2>
+        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{0.008 * text.split(" ").length}Minutes to Read</p>
+        <h2>Preview</h2>
+        <p>{text}</p>
+      </div>
     </div>
   );
 }
