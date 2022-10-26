@@ -34,7 +34,7 @@ const handelCopy= ()=>{
   return (
     <div>
       <div className="container" style={{color: props.mode==="dark"?"white":"#042743"}}>
-      <h1 className="mt-3">{props.heading}</h1>
+        <h1 className="mt-3">{props.heading}</h1>
         <div className="mb-3">
           <textarea className="form-control mt-3" value={text}  onChange={handelOnChange} style={{backgroundColor: props.mode==="dark"?"grey":"white", color: props.mode==="dark"?"white":"#042743"}} id="myBox" rows="8 "></textarea>
           <button className="btn btn-primary mt-3" onClick={handelUpClick}>Convert To UpperCase</button>
