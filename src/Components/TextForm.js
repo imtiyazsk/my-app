@@ -5,6 +5,7 @@ export default function TextForm(props) {
     const handelUpClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted To UpperCase", "success");
     }
 
     const handelOnChange = (event)=>{
@@ -13,19 +14,23 @@ export default function TextForm(props) {
     const handel_UpClick = ()=>{
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted To LowerCase", "success");
     }
     const handelClear = ()=>{
       let newText = "";
       setText(newText)
+      props.showAlert("Text Cleared", "success");
   }
   const clearExtra = ()=>{
     let newText = text.split(/[ ]+/);
-    setText(newText.join(" "))
+    setText(newText.join(" "));
+    props.showAlert("Extra Spaces Cleared", "success");
 }
 const handelCopy= ()=>{
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text Copied", "success");
 }
 
     

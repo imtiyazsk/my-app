@@ -1,12 +1,45 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function About() {
+  const [mycss, setMycssCount] = useState({
+    backgroundColor: "white",
+    color: "black",
+  });
+  const [border, setMyborder] = useState({
+    border: "3px solid black",
+    color: "black",
+    padding: "5px",
+  });
+  const [btnTxt, changeBtn] = useState("Enable Dark Mode");
+  var toggle = ()=>{
+    if(mycss.color === "black"){
+      setMyborder({
+        border: "1px solid white",
+      });
+      setMycssCount({
+        backgroundColor: "black",
+        color: "white",
+        border: "1px solid white",
+      });
+      changeBtn("Enable Light Mode");
+    }else{
+      setMyborder({
+        border: "1px solid white",
+      });
+      setMycssCount({
+        backgroundColor: "white",
+        color: "black",
+      });
+      changeBtn("Enable Dark Mode");
+    }
+  };
   return (
-    <div className="container mt-5">
+    <>
+      <div className="container mt-5 p-5" style={border}>
         <h1>About Us</h1>
-      <div className="accordion accordion-flush" id="accordionFlushExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="flush-headingOne">
+      <div className="accordion accordion-flush" id="accordionFlushExample" style={mycss}>
+        <div className="accordion-item" style={mycss}>
+          <h2 className="accordion-header" id="flush-headingOne" style={mycss}>
             <button
               className="accordion-button collapsed"
               type="button"
@@ -14,6 +47,7 @@ export default function About() {
               data-bs-target="#flush-collapseOne"
               aria-expanded="false"
               aria-controls="flush-collapseOne"
+              style={mycss}
             >
               Accordion Item #1
             </button>
@@ -31,7 +65,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={mycss}>
           <h2 className="accordion-header" id="flush-headingTwo">
             <button
               className="accordion-button collapsed"
@@ -40,6 +74,7 @@ export default function About() {
               data-bs-target="#flush-collapseTwo"
               aria-expanded="false"
               aria-controls="flush-collapseTwo"
+              style={mycss}
             >
               Accordion Item #2
             </button>
@@ -67,6 +102,7 @@ export default function About() {
               data-bs-target="#flush-collapseThree"
               aria-expanded="false"
               aria-controls="flush-collapseThree"
+              style={mycss}
             >
               Accordion Item #3
             </button>
@@ -76,6 +112,7 @@ export default function About() {
             className="accordion-collapse collapse"
             aria-labelledby="flush-headingThree"
             data-bs-parent="#accordionFlushExample"
+            style={mycss}
           >
             <div className="accordion-body">
               Placeholder content for this accordion, which is intended to
@@ -88,6 +125,12 @@ export default function About() {
           </div>
         </div>
       </div>
+      <div className="container" my-3>
+        <button onClick={toggle} type="button" className="btn btn-primary my-3">
+          {btnTxt}
+        </button>
+      </div>
     </div>
+    </>
   );
 }
